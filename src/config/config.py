@@ -36,7 +36,7 @@ class Config:
         self.versions = []
         self.enumerators = {}
         self.api_version = "1.0." + self._get_config_value("BUILT_AT", "LOCAL", False)
-        self._config_folder = self._get_config_value("CONFIG_FOLDER", "/opt/mentorhub-partner-api", False)
+        self._config_folder = self._get_config_value("CONFIG_FOLDER", "/opt/mentorhub-COLLECTION-api", False)
         self._port = int(self._get_config_value("PORT", "8088", False))
 
         # TODO Additional config item initialization 

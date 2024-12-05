@@ -49,7 +49,7 @@ paths:
     patch:
       summary: Update a COLLECTION document
       description: Update the COLLECTION with TODO 
-      operationId: updateCOLLECTION
+      operationId: update_COLLECTION
       parameters:
         - name: id
           in: path

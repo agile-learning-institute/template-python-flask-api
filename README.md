@@ -17,7 +17,6 @@ This is a template repo - Do these things in each file. (s/from/to/g is global s
 - [ ] [COLLECTION Routes](./src/routes/COLLECTION_routes.py)
      - [ ] Rename the file
      - [ ] Primary Collection s/COLLECTION/<collection>/g (all lower case)
-     - [ ] Search for TODO and Do the thing
 - [ ] [COLLECTION Service](./src/services/COLLECTION_services.py)
      - [ ] Rename the file
      - [ ] Primary Collection s/COLLECTION/<collection>/g (all lower case)

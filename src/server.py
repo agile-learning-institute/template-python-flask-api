@@ -1,8 +1,6 @@
-# Initilize Logging
+# Initialize Logging
 import logging
 
-from src.routes.path_routes import create_path_routes
-from src.routes.topic_routes import create_topic_routes
 from src.utils.ejson_encoder import MongoJSONEncoder
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -16,7 +14,7 @@ from src.utils.mongo_io import MongoIO
 from src.routes.COLLECTION_routes import create_COLLECTION_routes
 from src.routes.config_routes import create_config_routes
 
-# Initilize Flask App
+# Initialize Flask App
 app = Flask(__name__)
 app.json = MongoJSONEncoder(app)
 
