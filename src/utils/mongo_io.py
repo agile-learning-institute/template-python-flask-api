@@ -97,22 +97,11 @@ class MongoIO:
             return None
 
         try:
-            # Query COLLECTION - Lookup resource name/link by resource_id
-            paths_collection_name =  config.get_paths_collection_name()
+            # Get the COLLECTION document
             COLLECTION_collection = self.db.get_collection(config.get_COLLECTION_collection_name())
             COLLECTION_object_id = ObjectId(COLLECTION_id)
-
-            pipeline = [
-                # TODO Write Get Mong Pipeline
-            ]
-
-            # Execute the pipeline and get the single COLLECTION returned.
-            results = list(COLLECTION_collection.aggregate(pipeline))
-            if not results:
-                return None
-            else:
-                COLLECTION = results[0]
-                return COLLECTION
+            COLLECTION = COLLECTION_collection.find_one({"_id": COLLECTION_object_id})
+            return COLLECTION | {}
         except Exception as e:
             logger.error(f"Failed to get COLLECTION: {e}")
             raise

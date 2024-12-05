@@ -1,7 +1,7 @@
 # template-python-flask-api
 
 # INSTRUCTIONS
-This is a template repo - Do these things in each file. (s/from/to/g is global search/replace)
+This is a template repo - Do these things in each file. (s/from/to/g is global search/replace) - MAKE SURE YOU DO A CASE SENSITIVE SEARCH!
 - [ ] README.md (this file)
      - [ ] Primary Collection s/COLLECTION/<collection>/g (all lower case)
      - [ ] Default API Port s/PORT/1234/g

@@ -11,8 +11,8 @@ def create_COLLECTION_routes():
     COLLECTION_routes = Blueprint('COLLECTION_routes', __name__)
 
     # POST /api/COLLECTION/ - Create a COLLECTION
-    @COLLECTION_routes.route('/<string:id>', methods=['GET'])
-    def create_COLLECTION(id):
+    @COLLECTION_routes.route(methods=['POST'])
+    def create_COLLECTION():
         try:
             breadcrumb = create_breadcrumb()
             token = create_token()
