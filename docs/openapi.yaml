@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: COLLECTION API
+  version: 1.0.0
+  description: |
+    This API manages the COLLECTION, providing endpoints to add, update, and retrieve documents.
+  contact:
+    email: devs@agile-learning.institute
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /api/COLLECTION:
+    post:
+      summary: Create a COLLECTION document
+      description: Create a new document
+      operationId: post_COLLECTION
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/COLLECTION'
+        '500':
+          description: A Processing Error occurred
+  /api/COLLECTION/{id}:
+    get:
+      summary: Get a COLLECTION document
+      description: Get the specified document
+      operationId: get_COLLECTION
+      parameters:
+        - name: id
+          in: path
+          description: ID of COLLECTION document to retrieve
+          required: true
+          schema:
+            type: string
+            format: GUID
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/COLLECTION'
+        '500':
+          description: A Processing Error occurred
+    patch:
+      summary: Update a COLLECTION document
+      description: Update the COLLECTION with TODO 
+      operationId: updateCOLLECTION
+      parameters:
+        - name: id
+          in: path
+          description: ID of COLLECTION to update
+          required: true
+          schema:
+            type: string
+            format: GUID
+      requestBody:
+        description: COLLECTION
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/COLLECTION'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/COLLECTION'
+        '500':
+          description: A Processing Error occurred
+
+  /api/config/:
+    get:
+      summary: Get API Configuration Information
+      description: |
+        Retrieves information about the API's configuration.
+      operationId: getConfig
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config'
+
+  /api/health/:
+    get:
+      summary: Health Check Endpoint
+      description: |
+        Retrieves information about the health status of the API.
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Successful operation
+
+components:
+  schemas:
+    COLLECTION:
+      description: TODO - Provide object schema
+      type: object
+
+    Config:
+      type: object
+      properties:
+        apiVersion:
+          description: Semantic Version Number
+          type: string
+        configItems:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Conf Item Name (Env Var Name, File Name)
+              value:
+                type: string
+                description: The value for that config item
+              from:
+                type: string
+                description: Where the value was found
+                enum:
+                  - default
+                  - environment
+                  - file
